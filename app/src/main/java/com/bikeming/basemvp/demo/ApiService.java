@@ -15,5 +15,5 @@ import retrofit2.http.Query;
  */
 public interface ApiService {
     @GET("user/login.do")
-    Observable<BaseResponse> goLogin(@Query("name") String name, @Query("pwd") String pwd);
+    Observable<BaseResponse<LoginResponse>> goLogin(@Query("name") String name, @Query("pwd") String pwd);
 }

@@ -71,7 +71,7 @@ public abstract class BasePresenter<V extends BaseView> {
         });
     }
 
-    protected <T> Observable observe(Observable<T> observable) {
+    private  <T> Observable observe(Observable<T> observable) {
         return observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 //防止RxJava内存泄漏

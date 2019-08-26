@@ -3,6 +3,7 @@ package com.bikeming.basemvp.demo;
 import com.bikeming.basemvp.BasePresenter;
 import com.bikeming.basemvp.BaseResponse;
 import com.bikeming.basemvp.ResponseConsumer;
+import com.bikeming.basemvp.utils.GsonUtil;
 
 /**
  * @ClassName: com.bikeming.basemvp.demo
@@ -18,10 +19,10 @@ public class LoginPrensent extends BasePresenter<LoginContract.LoginView> implem
         String name = "北城中学班牌管理员";
         String pwd = "cbbccbbc";
         addObservable(getApiService(ApiService.class).goLogin(name, pwd),
-                new ResponseConsumer<BaseResponse>() {
+                new ResponseConsumer<BaseResponse<LoginResponse>>() {
                     @Override
-                    public void acceptSuccess(BaseResponse result) {
-                        mvpView.loginSuccess(result.code+"");
+                    public void acceptSuccess(BaseResponse<LoginResponse> result) {
+                        mvpView.loginSuccess(GsonUtil.getJson(result.message));
                     }
                 });
     }
