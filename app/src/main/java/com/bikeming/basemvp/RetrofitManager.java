@@ -73,13 +73,16 @@ public class RetrofitManager {
 
         }
         //打印网络日志
-        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        builder.addInterceptor(httpLoggingInterceptor);
+        if (BuildConfig.DEBUG) {
+            HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+            httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            builder.addInterceptor(httpLoggingInterceptor);
+        }
         //Cookies存取
         builder.addInterceptor(new ReceivedCookiesInterceptor(MApp.getINSTANCE()));
         builder.addInterceptor(new AddCookiesInterceptor(MApp.getINSTANCE()));
-
+        //全局添加请求参数
+//        builder.addInterceptor(new AddQueryParameterInterceptor());
         return builder.build();
     }
 }
