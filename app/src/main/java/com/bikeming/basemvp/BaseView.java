@@ -12,7 +12,7 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 public interface BaseView {
 
     //显示正在加载view
-    void showLoading(String message);
+    void showLoading();
 
     // 关闭正在加载view
 

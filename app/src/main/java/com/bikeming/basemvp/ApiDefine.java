@@ -8,5 +8,5 @@ package com.bikeming.basemvp;
  * @Version:1.0
  */
 public class ApiDefine {
-    public static final String baseUrl = "http://app.k6kt.com/";
+    public static final String baseUrl = "https://www.wanandroid.com/";
 }

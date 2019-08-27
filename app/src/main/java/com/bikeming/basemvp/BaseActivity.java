@@ -1,6 +1,7 @@
 package com.bikeming.basemvp;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
@@ -13,6 +14,8 @@ import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
  * @Version:1.0
  */
 public abstract class BaseActivity<P extends BasePresenter> extends RxFragmentActivity implements BaseView {
+
+    private static final String TAG = "BaseActivity";
 
     protected P mPresenter;
 
@@ -52,13 +55,21 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxFragmentAc
         return lifecycle;
     }
 
+    /**
+     * BaseObserver中回调
+     * 子类可以自由重写该方法展示加载进度条
+     *
+     * @param
+     */
     @Override
-    public void showLoading(String message) {
-
+    public void showLoading() {
+        Log.d(TAG, "baseActivity showLoading");
     }
 
     @Override
     public void hideLoading() {
+        Log.d(TAG, "baseActivity hideLoading");
+
 
     }
 }

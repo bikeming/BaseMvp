@@ -23,10 +23,10 @@ public abstract class ResponseConsumer<R extends BaseResponse> implements Consum
             ToastUtil.showToast("服务器数据异常");
             return;
         }
-        if (response.code == 200) {
+        if (response.errorCode == 0) {
             acceptSuccess(response);
         } else {
-            ToastUtil.showToast(response.errorMessage);
+            ToastUtil.showToast(response.errorMsg);
         }
     }
 }

@@ -3,8 +3,9 @@ package com.bikeming.basemvp.demo;
 import com.bikeming.basemvp.BaseResponse;
 
 import io.reactivex.Observable;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.POST;
 
 /**
  * @ClassName: com.bikeming.basemvp.demo
@@ -14,6 +15,7 @@ import retrofit2.http.Query;
  * @Version:1.0
  */
 public interface ApiService {
-    @GET("user/login.do")
-    Observable<BaseResponse<LoginResponse>> goLogin(@Query("name") String name, @Query("pwd") String pwd);
+    @FormUrlEncoded
+    @POST("user/login")
+    Observable<BaseResponse> goLogin(@Field("username") String name, @Field("password") String pwd);
 }

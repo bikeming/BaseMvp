@@ -82,7 +82,7 @@ public abstract class BaseFragemnt<P extends BasePresenter> extends RxFragment i
     }
 
     @Override
-    public void showLoading(String message) {
+    public void showLoading() {
 
     }
 

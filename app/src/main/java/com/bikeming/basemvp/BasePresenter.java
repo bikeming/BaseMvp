@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import com.bikeming.basemvp.utils.ToastUtil;
 
 import io.reactivex.Observable;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -71,7 +72,11 @@ public abstract class BasePresenter<V extends BaseView> {
         });
     }
 
-    private  <T> Observable observe(Observable<T> observable) {
+    protected void addObservable(Observable observable, Observer observer) {
+        observe(observable).subscribe(observer);
+    }
+
+    private <T> Observable observe(Observable<T> observable) {
         return observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 //防止RxJava内存泄漏

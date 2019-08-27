@@ -9,10 +9,10 @@ package com.bikeming.basemvp;
  */
 public class BaseResponse<T> {
 
-    public int code;
+    public int errorCode;
 
-    public T message;
+    public T data;
 
-    public String errorMessage;
+    public String errorMsg;
 
 }

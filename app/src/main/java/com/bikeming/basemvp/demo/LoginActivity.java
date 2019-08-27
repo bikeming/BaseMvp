@@ -45,4 +45,9 @@ public class LoginActivity extends BaseActivity<LoginPrensent> implements LoginC
     public void loginSuccess(String s) {
         data.setText(s);
     }
+
+    @Override
+    public void showLoading() {
+        super.showLoading();
+    }
 }
