@@ -30,13 +30,15 @@ dependencies {
     //RxJava + Retrofit
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
-
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
-
     //放着没有及时回收造成RxJava内存泄漏
     implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
+
+    //LoadingView
+    implementation 'com.billy.android:gloading:1.0.0'
+
 }

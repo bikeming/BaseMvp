@@ -1,5 +1,6 @@
 package com.bikeming.basemvp.demo;
 
+import com.bikeming.basemvp.BaseObserver;
 import com.bikeming.basemvp.BasePresenter;
 import com.bikeming.basemvp.BaseResponse;
 import com.bikeming.basemvp.utils.GsonUtil;
@@ -16,7 +17,7 @@ public class LoginPrensent extends BasePresenter<LoginContract.LoginView> implem
     @Override
     public void getLoginResponse() {
         String name = "fengzi";
-        String pwd = "123456";
+        String pwd = "1234567";
 //        addObservable(getApiService(ApiService.class).goLogin(name, pwd),
 //                new ResponseConsumer<BaseResponse<LoginResponse>>() {
 //                    @Override
@@ -35,7 +36,7 @@ public class LoginPrensent extends BasePresenter<LoginContract.LoginView> implem
 
                     @Override
                     protected void onFailed(String msg) {
-                        super.onFailed(msg);
+                        mvpView.loginError(msg);
                     }
                 });
     }

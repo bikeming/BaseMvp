@@ -2,6 +2,9 @@ package com.bikeming.basemvp;
 
 import android.app.Application;
 
+import com.bikeming.basemvp.LoadingView.GlobalAdapter;
+import com.billy.android.loading.Gloading;
+
 /**
  * @ClassName: com.bikeming.basemvp
  * @Description:
@@ -16,6 +19,8 @@ public class MApp extends Application {
     public void onCreate() {
         super.onCreate();
         INSTANCE = this;
+        //LoadingView
+        Gloading.initDefault(new GlobalAdapter());
     }
 
     public static MApp getINSTANCE() {

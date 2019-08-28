@@ -3,6 +3,7 @@ package com.bikeming.basemvp;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.billy.android.loading.Gloading;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
 
@@ -24,6 +25,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxFragmentAc
     public abstract int getContentViewId();
 
     protected abstract void init();
+
+    protected Gloading.Holder mHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,41 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxFragmentAc
     public void hideLoading() {
         Log.d(TAG, "baseActivity hideLoading");
 
+    }
 
+    protected void initLoadingStatusViewIfNeed() {
+        if (mHolder == null) {
+            //bind status view to activity root view by default
+            mHolder = Gloading.getDefault().wrap(this).withRetry(new Runnable() {
+                @Override
+                public void run() {
+                    onLoadRetry();
+                }
+            });
+        }
+    }
+
+    protected void onLoadRetry() {
+        init();
+    }
+
+    public void showPageLoading() {
+        initLoadingStatusViewIfNeed();
+        mHolder.showLoading();
+    }
+
+    public void showPageLoadSuccess() {
+        initLoadingStatusViewIfNeed();
+        mHolder.showLoadSuccess();
+    }
+
+    public void showPageLoadFailed() {
+        initLoadingStatusViewIfNeed();
+        mHolder.showLoadFailed();
+    }
+
+    public void showPageEmpty() {
+        initLoadingStatusViewIfNeed();
+        mHolder.showEmpty();
     }
 }

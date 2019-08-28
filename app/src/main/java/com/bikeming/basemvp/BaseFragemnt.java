@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
+import com.billy.android.loading.Gloading;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
@@ -31,6 +32,8 @@ public abstract class BaseFragemnt<P extends BasePresenter> extends RxFragment i
     protected BaseActivity mActivity;
 
     protected View mContentView;
+
+    protected Gloading.Holder mHolder;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,7 +61,9 @@ public abstract class BaseFragemnt<P extends BasePresenter> extends RxFragment i
                 group.removeView(mContentView);
             }
         }
-        return mContentView;
+        initLoadingStatusViewIfNeed();
+//        return mContentView;
+        return mHolder.getWrapper();
     }
 
     @Override
@@ -95,5 +100,41 @@ public abstract class BaseFragemnt<P extends BasePresenter> extends RxFragment i
     public LifecycleTransformer bindLifecycle() {
         LifecycleTransformer lifecycle = bindToLifecycle();
         return lifecycle;
+    }
+
+    protected void initLoadingStatusViewIfNeed() {
+        if (mHolder == null) {
+            //bind status view to activity root view by default
+            mHolder = Gloading.getDefault().wrap(mContentView).withRetry(new Runnable() {
+                @Override
+                public void run() {
+                    onLoadRetry();
+                }
+            });
+        }
+    }
+
+    protected void onLoadRetry() {
+        init();
+    }
+
+    public void showPageLoading() {
+        initLoadingStatusViewIfNeed();
+        mHolder.showLoading();
+    }
+
+    public void showPageLoadSuccess() {
+        initLoadingStatusViewIfNeed();
+        mHolder.showLoadSuccess();
+    }
+
+    public void showPageLoadFailed() {
+        initLoadingStatusViewIfNeed();
+        mHolder.showLoadFailed();
+    }
+
+    public void showPageEmpty() {
+        initLoadingStatusViewIfNeed();
+        mHolder.showEmpty();
     }
 }

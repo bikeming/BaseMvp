@@ -18,6 +18,7 @@ public interface LoginContract {
 
     interface LoginView extends BaseView {
         void loginSuccess(String s);
+        void loginError(String s);
 
     }
 }

@@ -15,9 +15,16 @@ public interface BaseView {
     void showLoading();
 
     // 关闭正在加载view
-
     void hideLoading();
 
     //防止内存泄漏
     LifecycleTransformer bindLifecycle();
+
+    void showPageLoading();
+
+    void showPageLoadSuccess();
+
+    void showPageLoadFailed();
+
+    void showPageEmpty();
 }

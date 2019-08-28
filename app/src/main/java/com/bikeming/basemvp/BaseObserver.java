@@ -1,10 +1,8 @@
-package com.bikeming.basemvp.demo;
+package com.bikeming.basemvp;
 
 
 import android.util.Log;
 
-import com.bikeming.basemvp.BaseResponse;
-import com.bikeming.basemvp.BaseView;
 import com.bikeming.basemvp.utils.ToastUtil;
 
 import java.net.ConnectException;

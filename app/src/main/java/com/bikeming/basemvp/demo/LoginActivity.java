@@ -36,6 +36,7 @@ public class LoginActivity extends BaseActivity<LoginPrensent> implements LoginC
         start.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                showPageLoading();
                 mPresenter.getLoginResponse();
             }
         });
@@ -43,7 +44,13 @@ public class LoginActivity extends BaseActivity<LoginPrensent> implements LoginC
 
     @Override
     public void loginSuccess(String s) {
+        showPageLoadSuccess();
         data.setText(s);
+    }
+
+    @Override
+    public void loginError(String s) {
+        showPageLoadFailed();
     }
 
     @Override
