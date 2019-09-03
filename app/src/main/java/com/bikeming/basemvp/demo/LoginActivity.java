@@ -4,8 +4,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-import com.bikeming.basemvp.BaseActivity;
 import com.bikeming.basemvp.R;
+import com.bikeming.basemvp.base.BaseActivity;
+import com.billy.android.loading.Gloading;
 
 /**
  * @ClassName: com.bikeming.basemvp.demo
@@ -37,9 +38,27 @@ public class LoginActivity extends BaseActivity<LoginPrensent> implements LoginC
             @Override
             public void onClick(View v) {
                 showPageLoading();
-                mPresenter.getLoginResponse();
+                mPresenter.getLoginResponse("fengzi","123456777");
             }
         });
+    }
+
+    @Override
+    protected void initLoadingStatusViewIfNeed() {
+        if (mHolder == null) {
+            mHolder = Gloading.getDefault().wrap(data).withRetry(new Runnable() {
+                @Override
+                public void run() {
+                    onLoadRetry();
+                }
+            });
+        }
+    }
+
+    @Override
+    protected void onLoadRetry() {
+//        showPageLoading();
+        mPresenter.getLoginResponse("fengzi","123456");
     }
 
     @Override

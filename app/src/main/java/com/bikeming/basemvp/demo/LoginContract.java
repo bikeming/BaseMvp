@@ -1,6 +1,6 @@
 package com.bikeming.basemvp.demo;
 
-import com.bikeming.basemvp.BaseView;
+import com.bikeming.basemvp.base.BaseView;
 
 /**
  * @ClassName: com.bikeming.basemvp.demo
@@ -12,7 +12,7 @@ import com.bikeming.basemvp.BaseView;
 public interface LoginContract {
 
     interface LoginPresent {
-        void getLoginResponse();
+        void getLoginResponse(String name,String pwd);
 
     }
 

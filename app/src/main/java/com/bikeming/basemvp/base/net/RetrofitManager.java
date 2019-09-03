@@ -1,7 +1,10 @@
-package com.bikeming.basemvp;
+package com.bikeming.basemvp.base.net;
 
-import com.bikeming.basemvp.Interceptors.AddCookiesInterceptor;
-import com.bikeming.basemvp.Interceptors.ReceivedCookiesInterceptor;
+import com.bikeming.basemvp.ApiDefine;
+import com.bikeming.basemvp.BuildConfig;
+import com.bikeming.basemvp.base.net.Interceptors.AddCookiesInterceptor;
+import com.bikeming.basemvp.base.net.Interceptors.ReceivedCookiesInterceptor;
+import com.bikeming.basemvp.MApp;
 import com.bikeming.basemvp.utils.GsonUtil;
 
 import java.util.concurrent.TimeUnit;

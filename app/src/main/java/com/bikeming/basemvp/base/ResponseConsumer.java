@@ -1,6 +1,7 @@
-package com.bikeming.basemvp;
+package com.bikeming.basemvp.base;
 
 
+import com.bikeming.basemvp.BaseResponse;
 import com.bikeming.basemvp.utils.ToastUtil;
 
 import io.reactivex.functions.Consumer;

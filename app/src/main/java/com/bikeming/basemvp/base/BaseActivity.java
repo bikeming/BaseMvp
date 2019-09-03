@@ -1,4 +1,4 @@
-package com.bikeming.basemvp;
+package com.bikeming.basemvp.base;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -88,7 +88,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends RxFragmentAc
     }
 
     protected void onLoadRetry() {
-        init();
+
     }
 
     public void showPageLoading() {

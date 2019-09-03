@@ -1,4 +1,4 @@
-package com.bikeming.basemvp.Interceptors;
+package com.bikeming.basemvp.base.net.Interceptors;
 
 import android.content.Context;
 import android.preference.PreferenceManager;

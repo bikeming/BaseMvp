@@ -1,4 +1,4 @@
-package com.bikeming.basemvp.LoadingView;
+package com.bikeming.basemvp.views.LoadingView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

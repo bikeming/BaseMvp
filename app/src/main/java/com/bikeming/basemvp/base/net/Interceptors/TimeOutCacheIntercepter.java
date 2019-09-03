@@ -1,4 +1,4 @@
-package com.bikeming.basemvp.Interceptors;
+package com.bikeming.basemvp.base.net.Interceptors;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.bikeming.basemvp.Interceptors;
+package com.bikeming.basemvp.base.net.Interceptors;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * @ClassName: com.bikeming.basemvp.Interceptors
+ * @ClassName: com.bikeming.basemvp.base.net.Interceptors
  * @Description: Retrofit提供了两种方式设置请求参数。
  * 第一种就是直接添加@Query注解
  * 还有一种方式是通过Interceptor实现,这种方式比较适用于所有的请求都需要添加的参数

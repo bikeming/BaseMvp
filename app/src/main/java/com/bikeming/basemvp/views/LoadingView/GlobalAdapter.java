@@ -1,4 +1,4 @@
-package com.bikeming.basemvp.LoadingView;
+package com.bikeming.basemvp.views.LoadingView;
 
 import android.view.View;
 
@@ -6,13 +6,7 @@ import com.bikeming.basemvp.Constants;
 import com.billy.android.loading.Gloading;
 
 
-/**
- * demo to show how to create a {@link Gloading.Adapter}
- *
- * @author billy.qi
- * @see GlobalLoadingStatusView
- * @since 19/3/18 18:37
- */
+
 public class GlobalAdapter implements Gloading.Adapter {
 
     @Override

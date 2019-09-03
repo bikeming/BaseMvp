@@ -1,4 +1,4 @@
-package com.bikeming.basemvp;
+package com.bikeming.basemvp.base;
 
 import com.trello.rxlifecycle2.LifecycleTransformer;
 

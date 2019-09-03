@@ -1,7 +1,8 @@
-package com.bikeming.basemvp;
+package com.bikeming.basemvp.base;
 
 import android.annotation.SuppressLint;
 
+import com.bikeming.basemvp.base.net.RetrofitManager;
 import com.bikeming.basemvp.utils.ToastUtil;
 
 import io.reactivex.Observable;

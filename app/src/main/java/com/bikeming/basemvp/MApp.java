@@ -2,7 +2,9 @@ package com.bikeming.basemvp;
 
 import android.app.Application;
 
-import com.bikeming.basemvp.LoadingView.GlobalAdapter;
+import com.bikeming.basemvp.views.LoadingView.GlobalAdapter;
+import com.bikeming.basemvp.views.TitleBar.TitleBar;
+import com.bikeming.basemvp.views.TitleBar.style.TitleBarLightStyle;
 import com.billy.android.loading.Gloading;
 
 /**
@@ -21,6 +23,8 @@ public class MApp extends Application {
         INSTANCE = this;
         //LoadingView
         Gloading.initDefault(new GlobalAdapter());
+        // 初始化 TitleBar 样式
+        TitleBar.initStyle(new TitleBarLightStyle(this));
     }
 
     public static MApp getINSTANCE() {
