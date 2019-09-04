@@ -1,6 +1,8 @@
 package com.bikeming.basemvp;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.bikeming.basemvp.views.LoadingView.GlobalAdapter;
 import com.bikeming.basemvp.views.TitleBar.TitleBar;
@@ -15,7 +17,13 @@ import com.billy.android.loading.Gloading;
  * @Version:1.0
  */
 public class MApp extends Application {
+
     public static MApp INSTANCE;
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 
     @Override
     public void onCreate() {

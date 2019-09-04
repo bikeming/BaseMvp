@@ -9,6 +9,8 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -33,6 +35,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    //65535
+    implementation 'com.android.support:multidex:1.0.3'
+
     //RxJava + Retrofit
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
@@ -44,13 +49,24 @@ dependencies {
     //放着没有及时回收造成RxJava内存泄漏
     implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
 
-    //LoadingView
-    implementation 'com.billy.android:gloading:1.0.0'
 
+    //views
+    implementation 'com.billy.android:gloading:1.0.0'    //LoadingView
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+
+
+    //tool
     implementation 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47'
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation 'com.android.support:cardview-v7:28.0.0'
+
+    //沉浸式状态栏
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0-beta07'
+    // fragment快速实现（可选）
+    implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0-beta07'
+    //今日头条屏幕适配方案
+    implementation 'me.jessyan:autosize:1.1.2'
+
 }

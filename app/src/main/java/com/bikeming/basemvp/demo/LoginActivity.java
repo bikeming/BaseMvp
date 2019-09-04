@@ -43,6 +43,7 @@ public class LoginActivity extends BaseActivity<LoginPrensent> implements LoginC
         });
     }
 
+
     @Override
     protected void initLoadingStatusViewIfNeed() {
         if (mHolder == null) {
