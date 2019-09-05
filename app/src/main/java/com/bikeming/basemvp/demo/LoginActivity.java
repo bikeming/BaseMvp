@@ -1,12 +1,18 @@
 package com.bikeming.basemvp.demo;
 
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.bikeming.basemvp.R;
+import com.bikeming.basemvp.aop.CheckIsLogined;
 import com.bikeming.basemvp.base.BaseActivity;
+import com.bikeming.basemvp.utils.SpUtil;
+import com.bikeming.basemvp.utils.ToastUtil;
 import com.billy.android.loading.Gloading;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * @ClassName: com.bikeming.basemvp.demo
@@ -17,8 +23,17 @@ import com.billy.android.loading.Gloading;
  */
 public class LoginActivity extends BaseActivity<LoginPrensent> implements LoginContract.LoginView {
 
-    private TextView data;
-    private TextView start;
+    @BindView(R.id.tv)
+    TextView data;
+    @BindView(R.id.login)
+    Button mLogin;
+    @BindView(R.id.check_aop)
+    Button mCheckAop;
+    @BindView(R.id.clear_login)
+    Button mClearLogin;
+    @BindView(R.id.start)
+    Button mStart;
+
 
     @Override
     protected LoginPrensent createPresenter() {
@@ -32,17 +47,32 @@ public class LoginActivity extends BaseActivity<LoginPrensent> implements LoginC
 
     @Override
     protected void init() {
-        data = (TextView) findViewById(R.id.tv);
-        start = (TextView) findViewById(R.id.start);
-        start.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPageLoading();
-                mPresenter.getLoginResponse("fengzi","123456777");
-            }
-        });
+
     }
 
+    @CheckIsLogined(loginType = 0)
+    @OnClick(R.id.check_aop)
+    public void onViewClicked() {
+        ToastUtil.showToast("hhhhhhhhhhh");
+    }
+
+    @OnClick({R.id.login, R.id.clear_login, R.id.start})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.login:
+                SpUtil.setIsLogined(true);
+                break;
+
+            case R.id.clear_login:
+                SpUtil.setIsLogined(false);
+
+                break;
+            case R.id.start:
+                showPageLoading();
+                mPresenter.getLoginResponse("fengzi", "123456777");
+                break;
+        }
+    }
 
     @Override
     protected void initLoadingStatusViewIfNeed() {
@@ -59,7 +89,7 @@ public class LoginActivity extends BaseActivity<LoginPrensent> implements LoginC
     @Override
     protected void onLoadRetry() {
 //        showPageLoading();
-        mPresenter.getLoginResponse("fengzi","123456");
+        mPresenter.getLoginResponse("fengzi", "123456");
     }
 
     @Override
@@ -77,4 +107,6 @@ public class LoginActivity extends BaseActivity<LoginPrensent> implements LoginC
     public void showLoading() {
         super.showLoading();
     }
+
+
 }
